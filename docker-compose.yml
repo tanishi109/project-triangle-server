@@ -1,0 +1,20 @@
+postgres:
+    container_name: postgres
+    image: postgres:9.6
+    ports:
+        - "5432:5432"
+    environment:
+        POSTGRES_USER: 'triangle'
+        POSTGRES_PASSWORD: ''
+    volumes:
+      - ./sql:/docker-entrypoint-initdb.d
+api:
+    container_name: project_triangle_api
+    build: .
+    volumes:
+      - ".:/tmp/workspace/project_triangle"
+    dockerfile: Dockerfile
+    ports:
+        - "4001:4001"
+    links:
+        - postgres
