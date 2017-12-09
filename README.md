@@ -1,1 +1,8 @@
-# project-triangle-server
+# FourFingersServer
+
+# develop
+
+```
+docker-compose build
+docker-compose up
+```

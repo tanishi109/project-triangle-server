@@ -1,20 +1,22 @@
-postgres:
-    container_name: postgres
-    image: postgres:9.6
-    ports:
-        - "5432:5432"
-    environment:
-        POSTGRES_USER: 'triangle'
-        POSTGRES_PASSWORD: ''
-    volumes:
-      - ./sql:/docker-entrypoint-initdb.d
-api:
-    container_name: project_triangle_api
-    build: .
-    volumes:
-      - ".:/tmp/workspace/project_triangle"
-    dockerfile: Dockerfile
-    ports:
-        - "4001:4001"
-    links:
-        - postgres
+version: "3"
+
+services:
+    four_fingers_db:
+        image: postgres:10.0
+        container_name: four_fingers_db
+        ports:
+            - 5432:5432
+        environment:
+            POSTGRES_USER: postgres
+            POSTGRES_PASSWORD: postgres
+            POSTGRES_DB: four_fingers_server_dev
+
+    four_fingers_server:
+        container_name: four_fingers_server
+        build: .
+        links:
+            - four_fingers_db
+        ports:
+            - 4000:4000
+        volumes:
+            - .:/four_fingers_volumes
