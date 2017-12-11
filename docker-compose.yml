@@ -18,5 +18,3 @@ services:
             - four_fingers_db
         ports:
             - 4000:4000
-        volumes:
-            - .:/four_fingers_volumes

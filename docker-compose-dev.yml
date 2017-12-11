@@ -1,0 +1,9 @@
+version: "3"
+
+services:
+  four_fingers_server:
+    volumes:
+      - four_fingers_server_volume:/tmp/workspace/four_fingers_server:nocopy
+volumes:
+  four_fingers_server_volume:
+    external: true
