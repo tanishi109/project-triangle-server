@@ -13,4 +13,4 @@ RUN mix local.rebar --force
 RUN mix deps.get
 RUN mix deps.compile
 
-ENTRYPOINT mix ecto.create && mix ecto.migrate && mix phx.server
+ENTRYPOINT mix ecto.create && mix ecto.migrate && iex -S mix phx.server
