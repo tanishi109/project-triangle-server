@@ -14,6 +14,9 @@ defmodule FourFingersServer.Application do
       supervisor(FourFingersServerWeb.Endpoint, []),
       # Start your own worker by calling: FourFingersServer.Worker.start_link(arg1, arg2, arg3)
       # worker(FourFingersServer.Worker, [arg1, arg2, arg3]),
+      # For PubSub
+      supervisor(Registry, [:duplicate, FourFingersServerWeb.RoomPub], partitions: System.schedulers_online),
+      supervisor(FourFingersServerWeb.RoomSub, []),
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
