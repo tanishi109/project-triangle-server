@@ -13,6 +13,7 @@ defmodule FourFingersServerWeb.RoomSub do
   end
 
   def handle_cast({:broadcast, "save", data}, topics) do
+    IO.inspect(topics)
     Agent.update(__MODULE__, &MapSet.put(&1, data))
     Agent.get(__MODULE__, fn state ->
       IO.puts("\n*** state")
@@ -21,5 +22,11 @@ defmodule FourFingersServerWeb.RoomSub do
       state
     end)
     {:noreply, topics}
+  end
+
+  def get_agent_val() do
+    Agent.get(__MODULE__, fn state ->
+      state
+    end)
   end
 end
