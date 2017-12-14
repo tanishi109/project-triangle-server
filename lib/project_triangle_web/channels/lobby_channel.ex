@@ -11,19 +11,15 @@ defmodule ProjectTriangleWeb.LobbyChannel do
   end
 
   def terminate(reason, socket) do
-    IO.puts("> leave #{inspect reason}")
-    IO.inspect(socket.assigns[:me])
-
-    # TODO: ここでユーザーの削除をpubする
-    # Registry.dispatch(ProjectTriangleWeb.RoomPub, "foo", fn entries ->
-    #   for {pid, _} <- entries, do: GenServer.cast(pid, {:broadcast, "save", id})
-    # end)
+    my_id = socket.assigns[:me]
+    LobbyRegistry.remove(my_id)
 
     :ok
   end
 
   def handle_in("request_match", %{"id" => id}, socket) do
     user_ids = LobbyRegistry.get()
+
     Enum.map(user_ids, fn user_id ->
       if (user_id !== id) do
         key = "some_uniq_key"
