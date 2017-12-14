@@ -1,4 +1,4 @@
-defmodule FourFingersServerWeb.ChannelCase do
+defmodule ProjectTriangleWeb.ChannelCase do
   @moduledoc """
   This module defines the test case to be used by
   channel tests.
@@ -21,15 +21,15 @@ defmodule FourFingersServerWeb.ChannelCase do
       use Phoenix.ChannelTest
 
       # The default endpoint for testing
-      @endpoint FourFingersServerWeb.Endpoint
+      @endpoint ProjectTriangleWeb.Endpoint
     end
   end
 
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(FourFingersServer.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(ProjectTriangle.Repo)
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(FourFingersServer.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(ProjectTriangle.Repo, {:shared, self()})
     end
     :ok
   end

@@ -6,15 +6,15 @@
 use Mix.Config
 
 # General application configuration
-config :four_fingers_server,
-  ecto_repos: [FourFingersServer.Repo]
+config :project_triangle,
+  ecto_repos: [ProjectTriangle.Repo]
 
 # Configures the endpoint
-config :four_fingers_server, FourFingersServerWeb.Endpoint,
+config :project_triangle, ProjectTriangleWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "N4RkWyh2PBEMAncLSgyhdyw0G4KO3xK1nEll/JTdfdpiUtcUwi9w+LlMr3UscfhL",
-  render_errors: [view: FourFingersServerWeb.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: FourFingersServer.PubSub,
+  render_errors: [view: ProjectTriangleWeb.ErrorView, accepts: ~w(html json)],
+  pubsub: [name: ProjectTriangle.PubSub,
            adapter: Phoenix.PubSub.PG2]
 
 # Configures Elixir's Logger

@@ -1,5 +1,5 @@
-defmodule FourFingersServerWeb.PageControllerTest do
-  use FourFingersServerWeb.ConnCase
+defmodule ProjectTriangleWeb.PageControllerTest do
+  use ProjectTriangleWeb.ConnCase
 
   test "GET /", %{conn: conn} do
     conn = get conn, "/"

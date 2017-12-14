@@ -1,4 +1,4 @@
-defmodule FourFingersServer.DataCase do
+defmodule ProjectTriangle.DataCase do
   @moduledoc """
   This module defines the setup for tests requiring
   access to the application's data layer.
@@ -16,20 +16,20 @@ defmodule FourFingersServer.DataCase do
 
   using do
     quote do
-      alias FourFingersServer.Repo
+      alias ProjectTriangle.Repo
 
       import Ecto
       import Ecto.Changeset
       import Ecto.Query
-      import FourFingersServer.DataCase
+      import ProjectTriangle.DataCase
     end
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(FourFingersServer.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(ProjectTriangle.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(FourFingersServer.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(ProjectTriangle.Repo, {:shared, self()})
     end
 
     :ok

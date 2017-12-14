@@ -1,9 +1,9 @@
-defmodule FourFingersServerWeb.UserSocket do
+defmodule ProjectTriangleWeb.UserSocket do
   use Phoenix.Socket
 
   ## Channels
-  channel "lobby", FourFingersServerWeb.LobbyChannel
-  channel "room:*", FourFingersServerWeb.RoomChannel
+  channel "lobby", ProjectTriangleWeb.LobbyChannel
+  channel "room:*", ProjectTriangleWeb.RoomChannel
 
   ## Transports
   transport :websocket, Phoenix.Transports.WebSocket
@@ -31,7 +31,7 @@ defmodule FourFingersServerWeb.UserSocket do
   # Would allow you to broadcast a "disconnect" event and terminate
   # all active sockets and channels for a given user:
   #
-  #     FourFingersServerWeb.Endpoint.broadcast("user_socket:#{user.id}", "disconnect", %{})
+  #     ProjectTriangleWeb.Endpoint.broadcast("user_socket:#{user.id}", "disconnect", %{})
   #
   # Returning `nil` makes this socket anonymous.
   def id(_socket), do: nil

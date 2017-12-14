@@ -5,5 +5,5 @@ options:
     verbose: true
 
 syncs:
-  four_fingers_server_volume:
+  project_triangle_volume:
     src: "./"

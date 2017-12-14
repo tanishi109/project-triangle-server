@@ -1,4 +1,4 @@
 ExUnit.start()
 
-Ecto.Adapters.SQL.Sandbox.mode(FourFingersServer.Repo, :manual)
+Ecto.Adapters.SQL.Sandbox.mode(ProjectTriangle.Repo, :manual)
 

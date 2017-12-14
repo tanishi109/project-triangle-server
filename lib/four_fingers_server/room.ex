@@ -1,4 +1,4 @@
-defmodule FourFingersServerWeb.RoomSub do
+defmodule ProjectTriangleWeb.RoomSub do
   use GenServer
   use Agent
 
@@ -8,7 +8,7 @@ defmodule FourFingersServerWeb.RoomSub do
   end
 
   def init(topics) do
-    Registry.register(FourFingersServerWeb.RoomPub, "foo", [])
+    Registry.register(ProjectTriangleWeb.RoomPub, "foo", [])
     {:ok, topics}
   end
 

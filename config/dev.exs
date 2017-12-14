@@ -6,7 +6,7 @@ use Mix.Config
 # The watchers configuration can be used to run external
 # watchers to your application. For example, we use it
 # with brunch.io to recompile .js and .css sources.
-config :four_fingers_server, FourFingersServerWeb.Endpoint,
+config :project_triangle, ProjectTriangleWeb.Endpoint,
   http: [port: 4000],
   debug_errors: true,
   code_reloader: true,
@@ -31,13 +31,13 @@ config :four_fingers_server, FourFingersServerWeb.Endpoint,
 # different ports.
 
 # Watch static and templates for browser reloading.
-config :four_fingers_server, FourFingersServerWeb.Endpoint,
+config :project_triangle, ProjectTriangleWeb.Endpoint,
   live_reload: [
     patterns: [
       ~r{priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$},
       ~r{priv/gettext/.*(po)$},
-      ~r{lib/four_fingers_server_web/views/.*(ex)$},
-      ~r{lib/four_fingers_server_web/templates/.*(eex)$}
+      ~r{lib/project_triangle_web/views/.*(ex)$},
+      ~r{lib/project_triangle_web/templates/.*(eex)$}
     ]
   ]
 
@@ -49,11 +49,11 @@ config :logger, :console, format: "[$level] $message\n"
 config :phoenix, :stacktrace_depth, 20
 
 # Configure your database
-config :four_fingers_server, FourFingersServer.Repo,
+config :project_triangle, ProjectTriangle.Repo,
   adapter: Ecto.Adapters.Postgres,
   username: "postgres",
   password: "postgres",
   port: 5432,
-  database: "four_fingers_server_dev",
-  hostname: "four_fingers_db",
+  database: "project_triangle_dev",
+  hostname: "project_triangle_db",
   pool_size: 10

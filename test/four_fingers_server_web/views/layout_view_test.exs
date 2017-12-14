@@ -1,3 +1,3 @@
-defmodule FourFingersServerWeb.LayoutViewTest do
-  use FourFingersServerWeb.ConnCase, async: true
+defmodule ProjectTriangleWeb.LayoutViewTest do
+  use ProjectTriangleWeb.ConnCase, async: true
 end

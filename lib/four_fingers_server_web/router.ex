@@ -1,5 +1,5 @@
-defmodule FourFingersServerWeb.Router do
-  use FourFingersServerWeb, :router
+defmodule ProjectTriangleWeb.Router do
+  use ProjectTriangleWeb, :router
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -13,14 +13,14 @@ defmodule FourFingersServerWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", FourFingersServerWeb do
+  scope "/", ProjectTriangleWeb do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", FourFingersServerWeb do
+  # scope "/api", ProjectTriangleWeb do
   #   pipe_through :api
   # end
 end

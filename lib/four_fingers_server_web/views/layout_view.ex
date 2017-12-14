@@ -1,3 +1,3 @@
-defmodule FourFingersServerWeb.LayoutView do
-  use FourFingersServerWeb, :view
+defmodule ProjectTriangleWeb.LayoutView do
+  use ProjectTriangleWeb, :view
 end

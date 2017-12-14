@@ -1,11 +1,11 @@
 version: "3"
 
 services:
-  four_fingers_server:
+  project_triangle:
     tty: true
     stdin_open: true
     volumes:
-      - four_fingers_server_volume:/tmp/workspace/four_fingers_server:nocopy
+      - project_triangle_volume:/tmp/workspace/project_triangle:nocopy
 volumes:
-  four_fingers_server_volume:
+  project_triangle_volume:
     external: true

@@ -1,5 +1,5 @@
-defmodule FourFingersServerWeb.ErrorView do
-  use FourFingersServerWeb, :view
+defmodule ProjectTriangleWeb.ErrorView do
+  use ProjectTriangleWeb, :view
 
   def render("404.html", _assigns) do
     "Page not found"

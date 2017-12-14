@@ -1,4 +1,4 @@
-defmodule FourFingersServerWeb.RoomChannel do
+defmodule ProjectTriangleWeb.RoomChannel do
   use Phoenix.Channel
 
   def join("room:" <> roomkey, %{"id" => id}, socket) do

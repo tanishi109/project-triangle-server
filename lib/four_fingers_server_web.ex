@@ -1,12 +1,12 @@
-defmodule FourFingersServerWeb do
+defmodule ProjectTriangleWeb do
   @moduledoc """
   The entrypoint for defining your web interface, such
   as controllers, views, channels and so on.
 
   This can be used in your application as:
 
-      use FourFingersServerWeb, :controller
-      use FourFingersServerWeb, :view
+      use ProjectTriangleWeb, :controller
+      use ProjectTriangleWeb, :view
 
   The definitions below will be executed for every view,
   controller, etc, so keep them short and clean, focused
@@ -19,17 +19,17 @@ defmodule FourFingersServerWeb do
 
   def controller do
     quote do
-      use Phoenix.Controller, namespace: FourFingersServerWeb
+      use Phoenix.Controller, namespace: ProjectTriangleWeb
       import Plug.Conn
-      import FourFingersServerWeb.Router.Helpers
-      import FourFingersServerWeb.Gettext
+      import ProjectTriangleWeb.Router.Helpers
+      import ProjectTriangleWeb.Gettext
     end
   end
 
   def view do
     quote do
-      use Phoenix.View, root: "lib/four_fingers_server_web/templates",
-                        namespace: FourFingersServerWeb
+      use Phoenix.View, root: "lib/project_triangle_web/templates",
+                        namespace: ProjectTriangleWeb
 
       # Import convenience functions from controllers
       import Phoenix.Controller, only: [get_flash: 2, view_module: 1]
@@ -37,9 +37,9 @@ defmodule FourFingersServerWeb do
       # Use all HTML functionality (forms, tags, etc)
       use Phoenix.HTML
 
-      import FourFingersServerWeb.Router.Helpers
-      import FourFingersServerWeb.ErrorHelpers
-      import FourFingersServerWeb.Gettext
+      import ProjectTriangleWeb.Router.Helpers
+      import ProjectTriangleWeb.ErrorHelpers
+      import ProjectTriangleWeb.Gettext
     end
   end
 
@@ -54,7 +54,7 @@ defmodule FourFingersServerWeb do
   def channel do
     quote do
       use Phoenix.Channel
-      import FourFingersServerWeb.Gettext
+      import ProjectTriangleWeb.Gettext
     end
   end
 

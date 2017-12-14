@@ -1,5 +1,5 @@
-defmodule FourFingersServerWeb.PageController do
-  use FourFingersServerWeb, :controller
+defmodule ProjectTriangleWeb.PageController do
+  use ProjectTriangleWeb, :controller
 
   def index(conn, _params) do
     render conn, "index.html"

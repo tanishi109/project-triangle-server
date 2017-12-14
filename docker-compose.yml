@@ -1,20 +1,20 @@
 version: "3"
 
 services:
-    four_fingers_db:
+    project_triangle_db:
         image: postgres:10.0
-        container_name: four_fingers_db
+        container_name: project_triangle_db
         ports:
             - 5432:5432
         environment:
             POSTGRES_USER: postgres
             POSTGRES_PASSWORD: postgres
-            POSTGRES_DB: four_fingers_server_dev
+            POSTGRES_DB: project_triangle_dev
 
-    four_fingers_server:
-        container_name: four_fingers_server
+    project_triangle:
+        container_name: project_triangle
         build: .
         links:
-            - four_fingers_db
+            - project_triangle_db
         ports:
             - 4000:4000

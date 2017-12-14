@@ -1,4 +1,4 @@
-# FourFingersServer
+# ProjectTriangle
 
 # develop
 
@@ -10,5 +10,5 @@ docker-sync-stack start
 # pry
 
 ```
-docker attach four_fingers_server
+docker attach project_triangle
 ```

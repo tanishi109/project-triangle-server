@@ -1,5 +1,5 @@
-defmodule FourFingersServer.Repo do
-  use Ecto.Repo, otp_app: :four_fingers_server
+defmodule ProjectTriangle.Repo do
+  use Ecto.Repo, otp_app: :project_triangle
 
   @doc """
   Dynamically loads the repository url from the

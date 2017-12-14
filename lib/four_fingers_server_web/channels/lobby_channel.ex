@@ -1,9 +1,9 @@
-defmodule FourFingersServerWeb.LobbyChannel do
+defmodule ProjectTriangleWeb.LobbyChannel do
   use Phoenix.Channel
-  alias FourFingersServerWeb.RoomSub
+  alias ProjectTriangleWeb.RoomSub
 
   def join("lobby", %{"id" => id}, socket) do
-    Registry.dispatch(FourFingersServerWeb.RoomPub, "foo", fn entries ->
+    Registry.dispatch(ProjectTriangleWeb.RoomPub, "foo", fn entries ->
       for {pid, _} <- entries, do: GenServer.cast(pid, {:broadcast, "save", id})
     end)
 
@@ -17,7 +17,7 @@ defmodule FourFingersServerWeb.LobbyChannel do
     IO.inspect(socket.assigns[:me])
 
     # TODO: ここでユーザーの削除をpubする
-    # Registry.dispatch(FourFingersServerWeb.RoomPub, "foo", fn entries ->
+    # Registry.dispatch(ProjectTriangleWeb.RoomPub, "foo", fn entries ->
     #   for {pid, _} <- entries, do: GenServer.cast(pid, {:broadcast, "save", id})
     # end)
 
