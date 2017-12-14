@@ -2,7 +2,8 @@ defmodule FourFingersServerWeb.UserSocket do
   use Phoenix.Socket
 
   ## Channels
-  channel "lobby", FourFingersServerWeb.RoomChannel
+  channel "lobby", FourFingersServerWeb.LobbyChannel
+  channel "room:*", FourFingersServerWeb.RoomChannel
 
   ## Transports
   transport :websocket, Phoenix.Transports.WebSocket
