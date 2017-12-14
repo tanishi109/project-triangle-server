@@ -14,9 +14,9 @@ defmodule ProjectTriangle.Application do
       supervisor(ProjectTriangleWeb.Endpoint, []),
       # Start your own worker by calling: ProjectTriangle.Worker.start_link(arg1, arg2, arg3)
       # worker(ProjectTriangle.Worker, [arg1, arg2, arg3]),
-      # For PubSub
-      supervisor(Registry, [:duplicate, ProjectTriangleWeb.RoomPub], partitions: System.schedulers_online),
-      supervisor(ProjectTriangleWeb.RoomSub, []),
+
+      # For kvs ./project_triangle_web/registries/*
+      supervisor(ProjectTriangleWeb.LobbyRegistry, []),
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

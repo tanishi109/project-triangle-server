@@ -1,11 +1,9 @@
 defmodule ProjectTriangleWeb.LobbyChannel do
   use Phoenix.Channel
-  alias ProjectTriangleWeb.RoomSub
+  alias ProjectTriangleWeb.LobbyRegistry
 
   def join("lobby", %{"id" => id}, socket) do
-    Registry.dispatch(ProjectTriangleWeb.RoomPub, "foo", fn entries ->
-      for {pid, _} <- entries, do: GenServer.cast(pid, {:broadcast, "save", id})
-    end)
+    LobbyRegistry.update(id)
 
     socket = assign(socket, :me, id)
 
@@ -24,35 +22,10 @@ defmodule ProjectTriangleWeb.LobbyChannel do
     :ok
   end
 
-  # def handle_info(:after_join, socket) do
-  #   user_ids = RoomSub.get_agent_val()
-    
-  #   Enum.map(user_ids, fn user_id ->
-  #     IO.inspect("id = #{user_id}")
-  #     if (user_id !== id) do
-  #       IO.inspect("id #{id} has match with #{user_id}!!")
-  #       socket = assign(socket, :users, "id")
-  #       broadcast!(socket, "matched", %{})
-  #     end
-  #   end)
-
-  #   {:noreply, socket}
-  # end
-  # def join("room:" <> _private_room_id, _params, _socket) do
-  #   {:error, %{reason: "unauthorized"}}
-  # end
-
-  # def handle_info("invite:" <> id, state) do
-  #   IO.inspect("*** id #{id} is invited!")
-  #   {:noreply, state}
-  # end
-
   def handle_in("request_match", %{"id" => id}, socket) do
-    user_ids = RoomSub.get_agent_val()
+    user_ids = LobbyRegistry.get()
     Enum.map(user_ids, fn user_id ->
-      IO.inspect("id = #{user_id}")
       if (user_id !== id) do
-        IO.inspect("id #{id} has match with #{user_id}!!")
         key = "some_uniq_key"
         roomkey_map = %{}
         |> Map.put(user_id, key)
@@ -60,12 +33,6 @@ defmodule ProjectTriangleWeb.LobbyChannel do
         broadcast!(socket, "matched", %{roomkey_map: roomkey_map})
       end
     end)
-
-    {:noreply, socket}
-  end
-
-  def handle_in("invited:" <> id, _, socket) do
-    IO.inspect("*** id #{id} invited!!")
 
     {:noreply, socket}
   end
