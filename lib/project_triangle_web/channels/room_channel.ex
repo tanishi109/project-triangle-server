@@ -7,4 +7,13 @@ defmodule ProjectTriangleWeb.RoomChannel do
     {:ok, socket}
   end
 
+  def handle_in("input", %{"key_map" => key_map, "id" => id}, socket) do
+
+    broadcast!(socket, "tick", %{
+      key_map: key_map,
+      id: id,
+    })
+
+    {:noreply, socket}
+  end
 end
