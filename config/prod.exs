@@ -16,7 +16,11 @@ use Mix.Config
 config :project_triangle, ProjectTriangleWeb.Endpoint,
   load_from_system_env: true,
   url: [host: "example.com", port: 80],
-  cache_static_manifest: "priv/static/cache_manifest.json"
+  cache_static_manifest: "priv/static/cache_manifest.json",
+  check_origin: [
+    "http://project-triangle-189113.appspot.com",
+    "https://project-triangle-189113.appspot.com"
+  ]
 
 # Do not print debug messages in production
 config :logger, level: :info

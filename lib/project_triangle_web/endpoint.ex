@@ -38,6 +38,11 @@ defmodule ProjectTriangleWeb.Endpoint do
     key: "_project_triangle_key",
     signing_salt: "BSfoY4Ns"
 
+
+  plug Corsica, [origins: [
+    "http://project-triangle-189113.appspot.com",
+    "https://project-triangle-189113.appspot.com"
+  ], allow_headers: []]
   plug ProjectTriangleWeb.Router
 
   @doc """
