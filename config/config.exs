@@ -14,8 +14,11 @@ config :project_triangle, ProjectTriangleWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "N4RkWyh2PBEMAncLSgyhdyw0G4KO3xK1nEll/JTdfdpiUtcUwi9w+LlMr3UscfhL",
   render_errors: [view: ProjectTriangleWeb.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: ProjectTriangle.PubSub,
-           adapter: Phoenix.PubSub.PG2]
+  pubsub: [
+    name: ProjectTriangle.PubSub,
+    adapter: Phoenix.PubSub.PG2
+  ],
+  salt: "i9ApefNASerPB84q4"
 
 # Configures Elixir's Logger
 config :logger, :console,

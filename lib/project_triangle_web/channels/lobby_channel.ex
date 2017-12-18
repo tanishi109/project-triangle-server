@@ -1,9 +1,12 @@
 defmodule ProjectTriangleWeb.LobbyChannel do
   use Phoenix.Channel
   alias ProjectTriangleWeb.LobbyRegistry
+  alias ProjectTriangleWeb.Helpers.Hash
 
   def join("lobby", %{"id" => id}, socket) do
     LobbyRegistry.update(id)
+    IO.inspect("*** Hash.get_random_token")
+    IO.inspect(Hash.gen_random_token)
 
     socket = assign(socket, :me, id)
 
