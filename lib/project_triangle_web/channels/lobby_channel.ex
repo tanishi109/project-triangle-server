@@ -3,12 +3,17 @@ defmodule ProjectTriangleWeb.LobbyChannel do
   alias ProjectTriangleWeb.LobbyRegistry
   alias ProjectTriangleWeb.Helpers.Hash
 
+  # id持ってない
+  def join("lobby", %{"id" => id}, socket) when is_nil(id) do
+    id = Hash.gen_random_str
+    {:ok, %{id: id}, socket}
+  end
+  # id持ってる
   def join("lobby", %{"id" => id}, socket) do
     LobbyRegistry.update(id)
-    IO.inspect("*** Hash.get_random_token")
-    IO.inspect(Hash.gen_random_token)
 
-    socket = assign(socket, :me, id)
+    socket = socket
+    |> assign(:me, id)
 
     {:ok, socket}
   end
