@@ -30,7 +30,7 @@ defmodule ProjectTriangleWeb.LobbyChannel do
 
     Enum.map(user_ids, fn user_id ->
       if (user_id !== id) do
-        key = "some_uniq_key"
+        key = Hash.gen_random_str
         roomkey_map = %{}
         |> Map.put(user_id, key)
         |> Map.put(id, key)
